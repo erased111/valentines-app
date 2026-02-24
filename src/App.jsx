@@ -396,20 +396,22 @@ function PhotoLightbox({ months, initialMonth, initialPhoto, onClose }) {
 function GalleryPage({ onNext }) {
   const [lightbox, setLightbox] = useState(null) // { monthIdx, photoIdx }
 
+  const base = import.meta.env.BASE_URL
+
   const months = [
-    { month: 'February 2025', emoji: '💚', photos: ['/imgs/feb2025.jpg'] },
-    { month: 'March 2025', emoji: '🌸', photos: ['/imgs/march.jpg'] },
-    { month: 'April 2025', emoji: '🌷', photos: ['/imgs/april1.jpg', '/imgs/april2.jpg', '/imgs/april3.jpg', '/imgs/april4.jpg', '/imgs/april5.jpg', '/imgs/april6.jpg', '/imgs/april7.jpg', '/imgs/april8.jpg'] },
-    { month: 'May 2025', emoji: '☀️', photos: ['/imgs/may1.jpg', '/imgs/may2.jpg'] },
-    { month: 'June 2025', emoji: '🌻', photos: ['/imgs/june1.jpg', '/imgs/june2.jpg', '/imgs/june3.jpg'] },
-    { month: 'July 2025', emoji: '🎆', photos: ['/imgs/july.jpg', '/imgs/july2.jpg'] },
-    { month: 'August 2025', emoji: '🏖️', photos: ['/imgs/aug.jpg', '/imgs/aug2.jpg', '/imgs/aug3.jpg', '/imgs/aug4.jpg'] },
-    { month: 'September 2025', emoji: '🍂', photos: ['/imgs/sept.jpg'] },
-    { month: 'October 2025', emoji: '🎃', photos: ['/imgs/oct.jpg', '/imgs/oct1.jpg', '/imgs/oct2.jpg'] },
-    { month: 'November 2025', emoji: '🍁', photos: ['/imgs/nov1.jpg', '/imgs/nov2.jpg'] },
-    { month: 'December 2025', emoji: '🎄', photos: ['/imgs/dec1.jpg', '/imgs/dec2.jpg', '/imgs/dec3.jpg', '/imgs/dec4.jpg', '/imgs/dec6.jpg', '/imgs/dec7.jpg'] },
-    { month: 'January 2026', emoji: '❄️', photos: ['/imgs/jan1.jpg', '/imgs/jan2.jpg', '/imgs/jan3.jpg'] },
-    { month: 'February 2026', emoji: '💚', photos: ['/imgs/feb2026_1.jpg', '/imgs/feb2026_2.jpg', '/imgs/feb2026_3.jpg'] },
+    { month: 'February 2025', emoji: '💚', photos: [`${base}imgs/feb2025.jpg`] },
+    { month: 'March 2025', emoji: '🌸', photos: [`${base}imgs/march.jpg`] },
+    { month: 'April 2025', emoji: '🌷', photos: [`${base}imgs/april1.jpg`, `${base}imgs/april2.jpg`, `${base}imgs/april3.jpg`, `${base}imgs/april4.jpg`, `${base}imgs/april5.jpg`, `${base}imgs/april6.jpg`, `${base}imgs/april7.jpg`, `${base}imgs/april8.jpg`] },
+    { month: 'May 2025', emoji: '☀️', photos: [`${base}imgs/may1.jpg`, `${base}imgs/may2.jpg`] },
+    { month: 'June 2025', emoji: '🌻', photos: [`${base}imgs/june1.jpg`, `${base}imgs/june2.jpg`, `${base}imgs/june3.jpg`] },
+    { month: 'July 2025', emoji: '🎆', photos: [`${base}imgs/july.jpg`, `${base}imgs/july2.jpg`] },
+    { month: 'August 2025', emoji: '🏖️', photos: [`${base}imgs/aug.jpg`, `${base}imgs/aug2.jpg`, `${base}imgs/aug3.jpg`, `${base}imgs/aug4.jpg`] },
+    { month: 'September 2025', emoji: '🍂', photos: [`${base}imgs/sept.jpg`] },
+    { month: 'October 2025', emoji: '🎃', photos: [`${base}imgs/oct.jpg`, `${base}imgs/oct1.jpg`, `${base}imgs/oct2.jpg`] },
+    { month: 'November 2025', emoji: '🍁', photos: [`${base}imgs/nov1.jpg`, `${base}imgs/nov2.jpg`] },
+    { month: 'December 2025', emoji: '🎄', photos: [`${base}imgs/dec1.jpg`, `${base}imgs/dec2.jpg`, `${base}imgs/dec3.jpg`, `${base}imgs/dec4.jpg`, `${base}imgs/dec6.jpg`, `${base}imgs/dec7.jpg`] },
+    { month: 'January 2026', emoji: '❄️', photos: [`${base}imgs/jan1.jpg`, `${base}imgs/jan2.jpg`, `${base}imgs/jan3.jpg`] },
+    { month: 'February 2026', emoji: '💚', photos: [`${base}imgs/feb2026_1.jpg`, `${base}imgs/feb2026_2.jpg`, `${base}imgs/feb2026_3.jpg`] },
   ]
 
   const openLightbox = (monthIdx, photoIdx) => {
@@ -459,7 +461,7 @@ function GalleryPage({ onNext }) {
 }
 
 /* ③ Puzzle Game */
-const PUZZLE_IMAGES = ['/puzzle/img1.jpg', '/puzzle/img2.jpg', '/puzzle/img3.jpg']
+const PUZZLE_IMAGES = [`${import.meta.env.BASE_URL}puzzle/img1.jpg`, `${import.meta.env.BASE_URL}puzzle/img2.jpg`, `${import.meta.env.BASE_URL}puzzle/img3.jpg`]
 
 function shuffleArray(arr) {
   const a = [...arr]
