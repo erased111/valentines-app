@@ -738,7 +738,14 @@ function ReasonsPage({ onNext }) {
 
 /* ⑥ Love Coupons */
 function CouponsPage({ onNext }) {
-  const [redeemed, setRedeemed] = useState({})
+  const [redeemed, setRedeemed] = useState(() => {
+    try {
+      const saved = localStorage.getItem('loveCouponsRedeemed')
+      return saved ? JSON.parse(saved) : {}
+    } catch {
+      return {}
+    }
+  })
   const coupons = [
     { title: 'Movie Night', desc: 'Or tv show :3', emoji: '🎬' },
     { title: 'Hand Massage', desc: 'A bombastic hand massage', emoji: '🤲' },
@@ -749,6 +756,12 @@ function CouponsPage({ onNext }) {
     { title: 'Chef Schlage Dinner', desc: 'Potato with gravy & chicken dinner prepped by Mr Schlage himself', emoji: '👨‍🍳' },
     { title: 'Board Game Night', desc: 'A cozy night of board games together', emoji: '🎲' },
   ]
+
+  useEffect(() => {
+    try {
+      localStorage.setItem('loveCouponsRedeemed', JSON.stringify(redeemed))
+    } catch { /* storage unavailable */ }
+  }, [redeemed])
 
   const redeem = (i) => setRedeemed(prev => ({ ...prev, [i]: !prev[i] }))
 
